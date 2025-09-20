@@ -1,0 +1,59 @@
+{
+  "name": "Next.js Claude Template - DDGN",
+  "description": "Next.js 15 and React 19 based web application with user authentication system",
+  "version": "0.1.0",
+  "framework": "Next.js",
+  "language": "TypeScript",
+  "packageManager": "npm",
+  "directories": {
+    "src": "src",
+    "components": "src/components",
+    "ui": "src/components/ui",
+    "pages": "src/app",
+    "lib": "src/lib",
+    "public": "public"
+  },
+  "scripts": {
+    "dev": "npm run dev",
+    "build": "npm run build",
+    "lint": "npm run lint",
+    "typecheck": "npx tsc --noEmit"
+  },
+  "environments": {
+    "development": {
+      "port": 3000,
+      "url": "http://localhost:3000"
+    },
+    "api": {
+      "baseUrl": "https://lux.upsilon.cloud"
+    }
+  },
+  "techStack": {
+    "ui": "@radix-ui/react-*",
+    "styling": "tailwindcss",
+    "forms": "react-hook-form",
+    "validation": "zod",
+    "api": "@deltalab-corp/ddgn-test",
+    "icons": "lucide-react"
+  },
+  "codeStyle": {
+    "linter": "eslint",
+    "quotes": "double",
+    "semicolons": true,
+    "indentation": 2
+  },
+  "features": [
+    "User signup",
+    "User signin",
+    "Form validation",
+    "Responsive UI",
+    "Error handling",
+    "Loading state management"
+  ],
+  "notes": {
+    "uiLanguage": "Korean",
+    "apiLibrary": "DDGN test library for account management",
+    "authFlow": "Simple name-based authentication",
+    "styling": "Tailwind CSS with Radix UI components"
+  }
+}

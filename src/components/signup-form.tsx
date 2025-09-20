@@ -79,7 +79,7 @@ export function SignupForm() {
     setIsLoading(true);
     try {
       const [result, error] = await api.account.signup({
-        name: formData.email
+        name: formData.email,
       });
 
       if (error) {
@@ -88,17 +88,17 @@ export function SignupForm() {
         let errorMessage = "회원가입에 실패했습니다.";
 
         switch (error.code) {
-          case 'invalid_request':
+          case "invalid_request":
             errorMessage = "입력한 정보가 올바르지 않습니다. 다시 확인해주세요.";
             break;
-          case 'invalid_argument':
+          case "invalid_argument":
             errorMessage = "잘못된 값이 입력되었습니다.";
             break;
-          case 'network':
+          case "network":
             errorMessage = "네트워크 연결을 확인해주세요.";
             break;
           default:
-            errorMessage = `회원가입에 실패했습니다: ${error.message || '알 수 없는 오류'}`;
+            errorMessage = `회원가입에 실패했습니다: ${error.message || "알 수 없는 오류"}`;
         }
 
         alert(errorMessage);
@@ -175,7 +175,7 @@ export function SignupForm() {
           </div>
         </CardContent>
         <CardFooter>
-          <Button type="submit" className="w-full" disabled={isLoading}>
+          <Button type="submit" className="w-full mt-4" disabled={isLoading}>
             {isLoading ? "가입 중..." : "회원가입"}
           </Button>
         </CardFooter>

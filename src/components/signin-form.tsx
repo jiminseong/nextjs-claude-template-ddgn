@@ -63,7 +63,7 @@ export function SigninForm() {
     setIsLoading(true);
     try {
       const [result, error] = await api.account.signin({
-        name: formData.name
+        name: formData.name,
       });
 
       if (error) {
@@ -72,17 +72,17 @@ export function SigninForm() {
         let errorMessage = "로그인에 실패했습니다.";
 
         switch (error.code) {
-          case 'account:no_such_user':
+          case "account:no_such_user":
             errorMessage = "존재하지 않는 사용자입니다. 회원가입을 먼저 해주세요.";
             break;
-          case 'invalid_argument':
+          case "invalid_argument":
             errorMessage = "잘못된 값이 입력되었습니다.";
             break;
-          case 'network':
+          case "network":
             errorMessage = "네트워크 연결을 확인해주세요.";
             break;
           default:
-            errorMessage = `로그인에 실패했습니다: ${error.message || '알 수 없는 오류'}`;
+            errorMessage = `로그인에 실패했습니다: ${error.message || "알 수 없는 오류"}`;
         }
 
         alert(errorMessage);
@@ -113,7 +113,9 @@ export function SigninForm() {
       <form onSubmit={handleSubmit}>
         <CardContent className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="name">이름</Label>
+            <Label className="" htmlFor="name">
+              이름
+            </Label>
             <Input
               id="name"
               name="name"
@@ -126,8 +128,8 @@ export function SigninForm() {
             {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
           </div>
         </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full" disabled={isLoading}>
+        <CardFooter className="">
+          <Button type="submit" className="w-full mt-4 " disabled={isLoading}>
             {isLoading ? "로그인 중..." : "로그인"}
           </Button>
         </CardFooter>
